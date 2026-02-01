@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-chrome-gray-900 text-white;
+  }
+}
+
+@layer utilities {
+  .chrome-wave {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 30%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.05) 70%,
+      transparent 100%
+    );
+    background-size: 300% 100%;
+    animation: wave 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes wave {
+    0%, 100% {
+      background-position: -300% 0;
+    }
+    50% {
+      background-position: 300% 0;
+    }
+  }
+}

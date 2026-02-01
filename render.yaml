@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: nyhjemmeisde
+    env: node
+    region: frankfurt  # Vælg den region der er tættest på dig
+    plan: free  # eller starter/pro/pro_plus
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Følgende skal sættes manuelt i Render dashboard:
+      # NEXTAUTH_URL - Din fulde Render URL (fx https://nyhjemmeisde.onrender.com)
+      # NEXTAUTH_SECRET - En tilfældig secret (brug openssl rand -base64 32)
+      # DISCORD_CLIENT_ID - Fra Discord Developer Portal
+      # DISCORD_CLIENT_SECRET - Fra Discord Developer Portal
+      # DISCORD_BOT_TOKEN - Fra Discord Developer Portal
+      # DISCORD_GUILD_ID - Din Discord server ID
+      # DISCORD_ADMIN_ROLE_IDS - Kommaseparerede role IDs
